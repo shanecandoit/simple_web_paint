@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -23,23 +22,21 @@
 <body>
 
   <div id="paint">
-    <canvas style="background-color: #000;" id="ourCanvas" width="220" height="220"></canvas>
+    <canvas style="background-color: #000;" id="ourCanvas" width="220" height="220">
+    </canvas>
   </div>
   <br>
-  <button type="button" onclick="clearCanvas()">clear</button>
-  <button type="button" onclick="saveCanvas()">save</button>
-  <button type="submit">submit</button>
+  <button type="button" onclick="clearCanvas()">Clear</button>
+  <button type="button" onclick="saveCanvas()">Save</button>
+
+  <!-- doesnt do anything here -->
+  <button type="submit">Submit</button>
 
   <script>
     var canvas = document.getElementById('ourCanvas');
     var ctx = canvas.getContext('2d');
 
     var painting = document.getElementById('paint');
-    // var paint_style = getComputedStyle(painting);
-    // canvas.width = parseInt(paint_style.getPropertyValue('width'));
-    // canvas.height = parseInt(paint_style.getPropertyValue('height'));
-    // console.log('width', canvas.width, 'height', canvas.height);
-    // console.log('width', canvas.width, 'height', canvas.height);
 
     var mouse = {x: 0, y: 0};
 
@@ -69,28 +66,24 @@
 
     var onPaint = function() {
       ctx.lineTo(mouse.x, mouse.y);
-
-      // dots.append( [mouse.x, mouse.y]);
-
       ctx.stroke();
     };
 
     function clearCanvas (){
-      console.log('clear');
+      // console.log('clear');
       var canvas = document.getElementById('ourCanvas');
       var ctx = canvas.getContext('2d');
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
     function saveCanvas (){
-      console.log('save');
+      // console.log('save');
       var canvas = document.getElementById('ourCanvas');
       var ctx = canvas.getContext('2d');
 
       // this saves
       //https://stackoverflow.com/questions/10673122/how-to-save-canvas-as-an-image-with-canvas-todataurl#15685544
       // var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
-
 
       // window.location.href=image; // it will save locally
       // use the function below so it prompts with a filename
@@ -105,11 +98,6 @@
       document.body.appendChild(a);
       a.click();
     }
-
 </script>
-</body>
-</html>      
-</script>
-
 </body>
 </html>
